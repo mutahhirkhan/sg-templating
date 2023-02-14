@@ -1,0 +1,9 @@
+type ChildGeneration @entity(immutable: true) {
+  id: Bytes!
+  _parentAddress: Bytes! # address
+  _childAddress: Bytes! # address
+  childNumber: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
