@@ -1,6 +1,6 @@
 specVersion: 0.0.5
 schema:
-  file: ./schema.graphql
+  file: schema.graphql
 dataSources:
   - kind: ethereum
     name: Factory
@@ -17,11 +17,11 @@ dataSources:
         - ChildGeneration
       abis:
         - name: Factory
-          file: ./abis/Factory.json
+          file: Factory/abis/Factory.json
       eventHandlers:
         - event: ChildGeneration(address,address,uint256)
           handler: handleChildGeneration
-      file: ./src/mappings/factory.ts
+      file: Factory/Factory.wasm
 templates:
   - name: Child
     kind: ethereum/contract
@@ -32,14 +32,14 @@ templates:
       kind: ethereum/events
       apiVersion: 0.0.7
       language: wasm/assemblyscript
-      file: ./src/mappings/child.ts
+      file: templates/Child/Child.wasm
       entities:
         - Child
         - Deposit
         - Withdraw
       abis:
         - name: Child
-          file: ./abis/Child.json
+          file: Child/abis/Child.json
       eventHandlers:
         - event: Deposit(address,uint256)
           handler: handleDeposit
