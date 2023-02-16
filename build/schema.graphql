@@ -19,7 +19,7 @@ type InitializeChild @entity {
 type Deposit @entity {
   id: ID!
   user: Bytes! # address
-  value: BigInt! # uint256
+  value: BigInt! # uint256  
   blockNumber: BigInt!
   timestamp: BigInt!
   transactionHash: Bytes!
